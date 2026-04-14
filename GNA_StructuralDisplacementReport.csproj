@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\DBapi\databaseAPI\databaseAPI.csproj" />
+    <ProjectReference Include="..\..\GNAchartingtools\GNAchartingtools\GNAchartingtools.csproj" />
+    <ProjectReference Include="..\..\gnaDataClasses\gnaDataClasses\gnaDataClasses.csproj" />
+    <ProjectReference Include="..\..\GNAsurveytools\GNAsurvey\GNAsurveycalcs.csproj" />
+    <ProjectReference Include="..\..\GNAtools\GNAtools\GNAtools.csproj" />
+    <ProjectReference Include="..\..\GNA_CommercialLicenseValidator\GNA_CommercialLicenseValidator\GNA_CommercialLicenseValidator.csproj" />
+    <ProjectReference Include="..\..\T4Dlibrary\T4Dlibrary\T4Dlibrary.csproj" />
+  </ItemGroup>
+
+</Project>
