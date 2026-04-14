@@ -348,6 +348,7 @@ namespace GNA_StructuralDisplacementReport
                     case "Historic":
                         subBlocks = gnaT.prepareTimeBlocksWithTimeZoneOffset(
                             strTimeBlockType: "Historic",
+                            strBlockSizeHrs: strBlockSizeHrs,
                             strManualBlockStart: strManualBlockStart,
                             strManualBlockEnd: strManualBlockEnd,
                             dblTimeZoneOffset: dblTimeZoneOffset);
@@ -658,10 +659,10 @@ namespace GNA_StructuralDisplacementReport
 
                                     Console.WriteLine(
                                         $"Point: {p.Name,-15}  " +
-                                        $"dR:{p.dR.ToString("F5", CultureInfo.InvariantCulture),8}  " +
-                                        $"dT:{p.dT.ToString("F5", CultureInfo.InvariantCulture),8}  " +
-                                        $"dH:{p.dH.ToString("F5", CultureInfo.InvariantCulture),8}  " +
-                                        $"dHtot:{p.dHtotal.ToString("F5", CultureInfo.InvariantCulture),8}");
+                                        $"dR:{(p.dR.HasValue ? p.dR.Value.ToString("F5", CultureInfo.InvariantCulture) : "<null>"),8}  " +
+                                        $"dT:{(p.dT.HasValue ? p.dT.Value.ToString("F5", CultureInfo.InvariantCulture) : "<null>"),8}  " +
+                                        $"dH:{(p.dH.HasValue ? p.dH.Value.ToString("F5", CultureInfo.InvariantCulture) : "<null>"),8}  " +
+                                        $"dHtot:{(p.dHtotal.HasValue ? p.dHtotal.Value.ToString("F5", CultureInfo.InvariantCulture) : "<null>"),8}");
                                 }
 
                                 Console.WriteLine("--------------------------------------------------------------------------");
