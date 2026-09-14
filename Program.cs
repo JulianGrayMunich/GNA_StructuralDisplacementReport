@@ -1,4 +1,5 @@
-﻿using System;
+﻿#region Using statements
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Globalization;
@@ -27,6 +28,8 @@ using Twilio.TwiML.Voice;
 using Twilio.Types;
 
 using static GNAgeneraltools.gnaTools;
+
+#endregion
 
 namespace GNA_StructuralDisplacementReport
 {
@@ -212,7 +215,6 @@ namespace GNA_StructuralDisplacementReport
                 Console.WriteLine($"{strTab1}Done");
                 #endregion
 
-
                 #region Clean exit
                 void FinishAndExit()
                 {
@@ -221,6 +223,22 @@ namespace GNA_StructuralDisplacementReport
                 }
                 #endregion
 
+                #region Check whether workbook is open
+
+                if (gnaSpreadsheetAPI.IsWorkbookOpen(
+                    strWorkbookFullPath: strMasterWorkbookFullPath))
+                {
+                    string message =
+                        $"{strTab1}The Excel workbook is currently open or locked:\n " +
+                        $"'{strMasterWorkbookFullPath}'.";
+                    Console.WriteLine($"{message}\nExecution stopped...\n");
+                    Environment.Exit(exitCode: 0);
+                }
+                else
+                {
+                    Console.WriteLine($"{strTab1}{strMasterWorkbookFullPath} ready");
+                }
+                #endregion
 
                 #region populate the RuntimeEnvironment class
 
@@ -254,7 +272,6 @@ namespace GNA_StructuralDisplacementReport
                 };
 
                 #endregion
-
 
                 #region ATS details
                 // read the ats and settop from the config file and write to AlarmState
